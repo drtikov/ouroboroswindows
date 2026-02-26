@@ -47,7 +47,7 @@ _SPAWN_GRACE_SEC: float = 90.0  # workers need up to ~60s to init (spawn + pip)
 # "spawn" re-imports __main__ in child processes, which in PyInstaller frozen apps
 # causes fork bombs (each child re-runs the full app). Use "fork" by default on
 # Linux and macOS. Workers don't touch GUI, so fork is safe.
-_DEFAULT_WORKER_START_METHOD = "fork"
+_DEFAULT_WORKER_START_METHOD = "spawn" if sys.platform == "win32" else "fork"
 _WORKER_START_METHOD = str(os.environ.get("OUROBOROS_WORKER_START_METHOD", _DEFAULT_WORKER_START_METHOD) or _DEFAULT_WORKER_START_METHOD).strip().lower()
 if _WORKER_START_METHOD not in {"fork", "spawn", "forkserver"}:
     _WORKER_START_METHOD = _DEFAULT_WORKER_START_METHOD
