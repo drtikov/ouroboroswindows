@@ -372,13 +372,26 @@ def checkout_and_reset(branch: str, reason: str = "unspecified",
         cwd=str(REPO_DIR), capture_output=True,
     ).returncode
 
+    # Check if HEAD exists yet (it won't on a fresh repo with no commits)
+    rc_head = 1
+    try:
+        rc_head = subprocess.run(
+            ["git", "rev-parse", "--verify", "HEAD"],
+            cwd=str(REPO_DIR), capture_output=True,
+            check=False
+        ).returncode
+    except Exception:
+        pass
+
     if rc_local != 0:
-        _run_git_resilient(["git", "reset", "--hard", "HEAD"], cwd=str(REPO_DIR), check=True)
+        if rc_head == 0:
+            _run_git_resilient(["git", "reset", "--hard"], cwd=str(REPO_DIR), check=True)
         _run_git_resilient(["git", "clean", "-fd"], cwd=str(REPO_DIR), check=True)
         _run_git_resilient(["git", "checkout", "-b", branch], cwd=str(REPO_DIR), check=False)
     else:
         _run_git_resilient(["git", "checkout", branch], cwd=str(REPO_DIR), check=True)
-        _run_git_resilient(["git", "reset", "--hard", "HEAD"], cwd=str(REPO_DIR), check=True)
+        if rc_head == 0:
+            _run_git_resilient(["git", "reset", "--hard"], cwd=str(REPO_DIR), check=True)
 
     # Clean __pycache__ to prevent stale bytecode (git checkout may not update mtime)
     for p in REPO_DIR.rglob("__pycache__"):
@@ -439,7 +452,7 @@ def import_test() -> Dict[str, Any]:
         return {"ok": True, "skipped": "frozen"}
 
     r = subprocess.run(
-        ["python3", "-c", "import ouroboros, ouroboros.agent; print('import_ok')"],
+        [sys.executable, "-c", "import ouroboros, ouroboros.agent; print('import_ok')"],
         cwd=str(REPO_DIR),
         capture_output=True, text=True,
     )
