@@ -1,0 +1,55 @@
+[project]
+name = "ouroboros"
+version = "3.3.0"
+description = "Self-creating AI agent with constitution, background consciousness, and persistent identity"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Anton Razzhigaev"},
+]
+keywords = ["ai-agent", "self-modifying", "autonomous", "llm", "openrouter"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "openai>=1.66.0",
+    "requests",
+    "dulwich",
+    "starlette",
+    "uvicorn[standard]",
+    "websockets",
+]
+
+[project.urls]
+Homepage = "https://github.com/razzant/ouroboros"
+Repository = "https://github.com/razzant/ouroboros"
+Issues = "https://github.com/razzant/ouroboros/issues"
+"Previous Version (Colab)" = "https://github.com/joi-lab/ouroboros"
+
+[project.optional-dependencies]
+browser = ["playwright", "playwright-stealth"]
+local-model = ["llama-cpp-python"]
+all = ["playwright", "playwright-stealth", "llama-cpp-python", "huggingface_hub"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-q --tb=short"
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]
