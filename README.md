@@ -56,54 +56,7 @@ Most AI agents execute tasks. Ouroboros **creates itself.**
 
 ---
 
-## Run from Source
 
-### Requirements
-
-- Python 3.10+
-- macOS or Linux (uses `fcntl` for file locking)
-- Git
-
-### Setup
-
-```bash
-git clone https://github.com/razzant/ouroboros.git
-cd ouroboros
-pip install -r requirements.txt
-```
-
-### Run
-
-```bash
-python server.py
-```
-
-Then open `http://127.0.0.1:8765` in your browser. The setup wizard will guide you through API key configuration.
-
-### Run Tests
-
-```bash
-make test
-```
-
----
-
-## Build macOS App (.dmg)
-
-To build the standalone desktop application:
-
-```bash
-# 1. Download bundled Python runtime
-bash scripts/download_python_standalone.sh
-
-# 2. Build the app (installs deps, runs PyInstaller, codesigns)
-bash build.sh
-
-# 3. Create DMG
-hdiutil create -volname Ouroboros -srcfolder dist/Ouroboros.app -ov dist/Ouroboros.dmg
-```
-
-Output: `dist/Ouroboros.dmg`
 
 ---
 
