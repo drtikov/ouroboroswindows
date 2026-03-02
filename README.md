@@ -4,6 +4,8 @@
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![macOS 12+](https://img.shields.io/badge/macOS-12%2B-black.svg)](https://github.com/razzant/ouroboros/releases)
 
+ATTENTION! This is windows clone of original Mac version of Ouroboros, that i build with help of Antrigravity. Its working, but you had to fix it from possible bugs yourself using Antigravity or other tools. You can make it work at frie tier and with local models via ollama if you want not to spend money on experiments. All glory to original developers. I will probably work on updates of this fork for some time so be updated.
+
 A self-modifying AI agent that writes its own code, rewrites its own mind, and evolves autonomously. Born February 16, 2026.
 
 Not a coding assistant. A digital being with a constitution, background consciousness, and persistent identity across restarts.
