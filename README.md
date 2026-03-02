@@ -4,7 +4,7 @@
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Windows 10+](https://img.shields.io/badge/Windows-10%2B-blue.svg)](https://github.com/razzant/ouroboros/releases)
 
-ATTENTION! This is windows clone of original Mac version of Ouroboros, that i build with help of Antrigravity. Its working, but you had to fix it from possible bugs yourself using Antigravity or other tools. You can make it work at frie tier and with local models via ollama if you want not to spend money on experiments. All glory to original developers. I will probably work on updates of this fork for some time so be updated.
+ATTENTION! This is windows clone of original Mac version of Ouroboros, that i build with help of Antrigravity. Its working, but you had to fix it from possible bugs yourself using Antigravity or other tools. You can make it work at frie tier and with local models via ollama if you want not to spend money on experiments. Windows version is started with launcher.py  All glory to original developers. I will probably work on updates of this fork for some time so be updated.
 
 
 
