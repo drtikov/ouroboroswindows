@@ -199,4 +199,4 @@ Full text: [BIBLE.md](BIBLE.md)
 
 [MIT License](LICENSE)
 
-Created by [Anton Razzhigaev](https://t.me/abstractDL)
+Created by [Anton Razzhigaev](https://t.me/abstractDL) Windows clone by Dr Tikov
